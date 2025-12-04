@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌿 My Journey from the Rubble to Hope - Majd from Gaza</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+* {margin: 0; padding: 0; box-sizing: border-box;}
+body {
+  font-family: 'Cairo', sans-serif;
+  background: linear-gradient(to bottom, #0b0b0b, #1e1e1e);
+  color: #f1f1f1;
+  line-height: 1.9;
+  overflow-x: hidden;
+}
+
+/* ====== HEADER ====== */
+header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #1e2138, #0b0c10);
+  text-align: center;
+  position: relative;
+}
+header h1 {
+  font-size: 2.8rem;
+  color: #fff;
+  z-index: 2;
+  animation: fadeInDown 2s ease;
+}
+header p {
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  color: #ddd;
+  z-index: 2;
+}
+
+/* ==== SCROLL BUTTON ==== */
+.scroll-btn {
+  position: relative;
+  z-index: 2;
+  margin-top: 2rem;
+  padding: 12px 25px;
+  border: none;
+  background: linear-gradient(90deg, #e63946, #ff6f61);
+  box-shadow: 0 3px 15px rgba(230, 57, 70, 0.4);
+  color: white;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+/* تأثير الوميض الناعم من اليسار */
+.scroll-btn::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.3);
+  transform: skewX(-20deg);
+  transition: all 0.6s ease;
+}
+
+.scroll-btn:hover::before {
+  left: 200%;
+}
+
+/* تأثير عند تمرير الماوس */
+.scroll-btn:hover {
+  background: linear-gradient(45deg, #256628, #43a047);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(67, 160, 71, 0.6);
+  animation: pulseBtn 1.2s infinite ease-in-out;
+}
+
+/* نبض ناعم */
+@keyframes pulseBtn {
+  0%, 100% { box-shadow: 0 0 10px rgba(67,160,71,0.4); }
+  50% { box-shadow: 0 0 25px rgba(67,160,71,0.8); }
+}
+
+@keyframes fadeInDown {
+  from {opacity: 0; transform: translateY(-20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* ====== SECTIONS ====== */
+section {max-width: 900px; margin: auto; padding: 60px 20px;}
+section h2 {color: #8ad26f; margin-bottom: 15px; font-size: 1.8rem;}
+section p {margin-bottom: 20px; text-align: justify;}
+
+/* ====== HOPE SECTION ====== */
+.hope {
+  background: linear-gradient(135deg, #e8f5e9 10%, #ffffff 90%);
+  color: #222;
+  text-align: center;
+  padding: 100px 20px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50px;
+}
+
+.hope::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(144, 238, 144, 0.2), transparent 70%);
+  animation: pulse 6s infinite ease-in-out;
+  z-index: 0;
+}
+
+@keyframes pulse {
+  0%, 100% {transform: scale(1);}
+  50% {transform: scale(1.2);}
+}
+
+.hope h2, .hope p, .hope a {
+  position: relative;
+  z-index: 1;
+}
+
+.hope h2 {
+  color: #e63946;
+  font-size: 2rem;
+  animation: fadeInUp 1.5s ease;
+}
+.hope p {
+  color: #111;
+  max-width: 700px;
+  margin: 15px auto;
+  font-size: 1.1rem;
+}
+
+.btn-support, .btn-home {
+  display: inline-block;
+  background: #e63946;
+  color: white;
+  padding: 14px 35px;
+  border-radius: 30px;
+  margin-top: 30px;
+  margin-right: 10px;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 15px rgba(46,125,50,0.4);
+}
+.btn-support:hover, .btn-home:hover {
+  background: linear-gradient(45deg, #256628, #43a047);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(46,125,50,0.6);
+}
+
+/* Floating glowing particles */
+.hope .glow {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(76, 175, 80, 0.3);
+  animation: float 10s infinite ease-in-out;
+}
+.glow:nth-child(1) {width: 80px; height: 80px; top: 20%; left: 10%; animation-delay: 0s;}
+.glow:nth-child(2) {width: 120px; height: 120px; top: 60%; right: 15%; animation-delay: 2s;}
+.glow:nth-child(3) {width: 60px; height: 60px; bottom: 10%; left: 40%; animation-delay: 4s;}
+@keyframes float {
+  0%, 100% {transform: translateY(0) scale(1);}
+  50% {transform: translateY(-20px) scale(1.1);}
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #111;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+/* Animation Effect */
+[data-aos] {opacity: 0; transition: opacity 0.8s ease, transform 0.8s ease;}
+</style>
+</head>
+
+<body>
+<header>
+  <h1>🌿 My Journey from the Rubble to Hope</h1>
+  <p>The story of Majd from Gaza — from ashes to dreams.</p>
+  <button class="scroll-btn" onclick="document.getElementById('story').scrollIntoView({behavior:'smooth'})">Read My Story</button>
+</header>
+
+<section id="story" data-aos="fade-up">
+  <p>My name is <strong>Majd</strong>, an 18-year-old from Gaza. I used to live a life I could call “somewhat normal,” even though Gaza has been under blockade for many years. We were living inside a large prison, struggling with harsh economic conditions that made the unemployment rate exceed 90% in the last year.</p>
+  <p>Despite all this, I never let circumstances stop my dream. I have been an outstanding student since childhood, passionate about science and technology. I developed many skills — in robotics, website and app programming, photography, and video editing — and participated in competitions across Palestine. I have always carried a passion for progress and innovation.</p>
+</section>
+
+<section data-aos="fade-up">
+  <h2>🔥 The Beginning of War</h2>
+  <p>On a Saturday morning, I woke up as usual, prayed Fajr, and got ready to go to school on my bike. Suddenly, the sound of hundreds of rockets filled the air. I heard my mother scream: “Get inside quickly! The situation is dangerous!”</p>
+  <p>At first, my heart filled with joy when I saw the resistance targeting the forces responsible for killing many of our people. But that joy soon turned into a nightmare. Israeli jets began raining Gaza with heavy bombardment. My ears hurt from the constant explosions. As the ground invasion began, northern Gaza was ablaze.</p>
+  <p>I come from <strong>Jabalia Camp</strong>, witnessing with my own eyes the army advancing toward Beit Lahia and Beit Hanoun, turning everything around us into ashes. The bombing got so close that a house three doors away from ours was hit directly. I saw scenes that cannot be described — bodies under rubble, screams, and the smell of death everywhere.</p>
+</section>
+
+<section data-aos="fade-up">
+  <h2>💔 The Escape</h2>
+  <p>Communications were cut off, phones and radio stations hacked, and we received threatening messages: “Get out, we will kill you, you monsters!” Fear took over me, and I shouted to my father: “We have to leave! We have to survive!” He refused, saying: “We will face our fate here.”</p>
+  <p>I started convincing my mother of the need to escape, and she was quietly planning it. Our plan was simple yet dangerous: carry only a few belongings so we could walk long distances without exhaustion. At dawn the next day, my mother whispered: “Shall we leave now?” I immediately said: “Yes, now!”</p>
+  <p>We bid a painful farewell to my father and brother and left with a driver who agreed to take us to the nearest point to the <strong>Netsarim checkpoint — the 'Checkpoint of Death.'</strong> A few days later, my father and brother left the house too.</p>
+</section>
+
+<section data-aos="fade-up">
+  <h2>🕊️ Between Life and Death</h2>
+  <p>The road was crowded with thousands of people walking under a sky raining fire. I tied a <strong>white flag</strong> to my backpack as a sign of hope. We walked twenty minutes until we reached a square surrounded by tanks and Israeli soldiers pointing their weapons at us. I heard someone shout: “You in black, stop!”</p>
+  <p>I held my sister <strong>Sundus</strong>’s hand tightly and whispered: “Don’t look at them, move quickly.” We lost contact with the rest of our family, but we all survived. Gaza, however, did not.</p>
+</section>
+
+<section data-aos="fade-up">
+  <h2>🌾 Hunger and Displacement</h2>
+  <p>After a few days of relative calm, <strong>famine</strong> began. They told us: “Go south; there is food and safety.” But there was neither safety nor food. Prices rose to insane levels, and we almost died of hunger. Yet, we survived again, fleeing danger that followed us everywhere. We escaped again through Al-Masdar agricultural village under sniper fire, then reached Deir al-Balah on foot, with bullets hitting walls around us. Every day we lost something — a home, a friend, a hope — yet we clung to life.</p>
+</section>
+
+<section data-aos="fade-up">
+  <h2>🌤️ Healing After the Storm</h2>
+  <p>After more than two years of continuous escape and losing everything, we finally began to breathe. The process of healing and rebuilding started, though the pain cannot be erased. Today, I have been accepted at <strong>University College Cork in Ireland</strong> — my dream is to become a doctor, to rebuild what the war destroyed, and to heal broken hearts and souls like mine. However, the cost of studying is extremely high, and I do not have enough to fulfill this dream.</p>
+</section>
+
+<section class="hope" data-aos="zoom-in">
+  <div class="glow"></div><div class="glow"></div><div class="glow"></div>
+  <h2>🤍 A Call for Hope</h2>
+  <p>I am not asking for charity; I am asking for a <strong>chance at life</strong> — a chance to continue my path that began among destruction and fire. I need your support, not only financially, but through belief in me, sharing my story, and giving me the opportunity to continue my education and serve humanity.</p>
+  <p>I am <strong>Majd from Gaza</strong>, a survivor of death and a dreamer of life. Help me write a new chapter of this story — a chapter titled: “From Under the Rubble... Hope Was Born.”</p>
+  <a href="https://linktr.ee/majdingaza?fbclid=PAZXh0bgNhZW0CMTEAAacBsASkcs68x-yNIpXhvC6suQH7pm5-O0vQh1RFZ2fY7j9IEVZ91OKbgGuYzA_aem_qTo_iDbn0mQ2D7qsB3hNhg" class="btn-support">🌿 Support My Now</a>
+  <a href="/maie.html" class="btn-home">🏠 Back Home</a>
+</section>
+
+<footer>
+   Majd story – Gaza © 2025 🌿
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init({duration: 1000, once: true});</script>
+</body>
+</html>

@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Majd Family</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;500&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+  --primary: #e63946;
+  --dark: #0b0c10;
+  --gray: #1f2833;
+  --light: #ffffff;
+  --heading-font: 'Montserrat', sans-serif;
+  --body-font: 'Open Sans', sans-serif;
+  --btn-font: 'Poppins', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/* العناوين */
+h1, h2, h3 {
+  font-family: var(--heading-font);
+}
+
+/* نصوص الجسم */
+body, p, li, a {
+  font-family: var(--body-font);
+  font-weight: 400;
+}
+
+/* الأزرار */
+.btn, .btn1, .donate-btn, .read-more-btn {
+  font-family: var(--btn-font);
+  font-weight: 500;
+}
+
+/* تحسين العناوين بشكل منفصل */
+.landing-text h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.news-section h2, .about h2, .donation h2, .contact-section h2 {
+  font-weight: 600;
+}
+
+/* نصوص عن Majd */
+.about-text p, .landing-text p {
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+    /* HEADER */
+    .navbar {
+      background-color: var(--dark);
+      color: var(--light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 6%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    }
+
+    .logo {
+      font-size: 30px;
+      color: var(--primary);
+    }
+
+    .logo span { color: var(--light); }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links li a {
+      color: var(--light);
+      text-decoration: none;
+      transition: 0.3s;
+      font-size: 18px;
+    }
+
+    .nav-links li a:hover { color: var(--primary); }
+
+    .social-links a {
+      color: var(--light);
+      margin-left: 15px;
+      font-size: 1.2rem;
+      transition: 0.3s;
+    }
+
+    .social-links a:hover { color: var(--primary); }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--light);
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    /* LANDING */
+    .landing {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(to bottom, #0b0c10, #1f2833);
+      color: var(--light);
+      padding: 60px 7%;
+      overflow: hidden;
+    }
+
+    .landing-text {
+      flex: 1;
+      min-width: 280px;
+      padding: 20px;
+      animation: fadeInLeft 1.5s ease;
+    }
+
+    .landing-text h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .landing-text span { color: var(--primary); }
+
+    .landing-text p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .landing-image {
+      flex: 1;
+      min-width: 280px;
+      text-align: center;
+      animation: fadeInRight 1.5s ease;
+    }
+
+    .landing-image img {
+      width: 250px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      transition: transform 0.4s ease;
+    }
+
+    .landing-image img:hover { transform: scale(1.05); }
+
+    /* Animations */
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* BUTTONS */
+    .btn, .btn1, .donate-btn, .read-more-btn {
+      background-color: var(--primary);
+      color: var(--light);
+      text-decoration: none;
+      padding: 0.8rem 1.8rem;
+      border-radius: 25px;
+      transition: 0.3s;
+      display: inline-block;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      cursor: pointer;
+    }
+    .read-more-btn{
+      margin-top:  15px;
+    }
+
+    .btn:hover, .btn1:hover, .donate-btn:hover, .read-more-btn:hover {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      transform: scale(1.05);
+    }
+
+    /* === NEWS SECTION === */
+    .news-section {
+      padding: 100px 10%;
+      text-align: center;
+      background: var(--light);
+    }
+
+    .news-section h2 {
+      color: var(--dark);
+      font-size: 2.2rem;
+      margin-bottom: 60px;
+      position: relative;
+    }
+
+    .news-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .news-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+
+    .news-card {
+  background: var(--gray);
+  color: var(--light);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.40); /* 🔥 ظل قوي وواضح */
+  transform: translateY(40px);
+  opacity: 0;
+  transition: all 0.8s ease;
+   }
+
+
+    .news-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .news-image img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .news-card:hover img { transform: scale(1.1); }
+
+    .news-content {
+      padding: 25px 20px 30px;
+    }
+
+    .news-content h3 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: var(--light);
+    }
+
+    /* ABOUT */
+    .about {
+      background: #f5f5f5;
+      padding: 80px 6%;
+      text-align: center;
+    }
+
+    .about h2 {
+      color: var(--primary);
+      margin-bottom: 40px;
+    }
+
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .about-content img {
+      width: 300px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .about-text {
+      max-width: 500px;
+      text-align: left;
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    .about-extra { display: none; margin-top: 15px; }
+
+    /* DONATION */
+    .donation {
+      padding: 60px 6%;
+      text-align: center;
+      background: linear-gradient(135deg, #e63946, #f1faee);
+      color: #0b0c10;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      max-width: 900px;
+      margin: 50px auto;
+    }
+
+    .progress-bar-container {
+      width: 85%;
+      height: 30px;
+      background: rgba(11,12,16,0.2);
+      border-radius: 25px;
+      margin: 25px auto 10px auto;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      width: 17%;
+      height: 100%;
+      background: #0b0c10;
+      transition: width 1.5s ease;
+    }
+
+    /* CONTACT */
+    .contact-section {
+      background: linear-gradient(135deg, #0b0c10, #1f2833);
+      color: #fff;
+      padding: 80px 6%;
+      text-align: center;
+    }
+
+    .contact-container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.05);
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+    }
+
+    #contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+/* ANIMATION FOR ABOUT EXTRA TEXT */
+.about-extra {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.about-extra.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* BUTTON SLIDE ANIMATION */
+.read-more-btn {
+  transition: all 0.6s ease;  
+  position: relative;
+}
+
+.read-more-btn.move-down {
+  transform: translateY(20px);
+}
+
+    #contact-form input,
+    #contact-form textarea {
+      padding: 15px 20px;
+      border-radius: 12px;
+      border: none;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+    }
+  #adOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7); /* خلفية مظللة */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#adContent {
+  position: relative;
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 700px;
+  width: 90%;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+#closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: red;
+  color: white;
+  border: none;
+  font-size: 40px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+
+      .donate-btn{
+        margin-top: 20px;
+      }
+    .send-btn {
+      padding: 15px 25px;
+      border: none;
+      border-radius: 25px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark);
+      color: var(--light);
+      padding: 30px 6%;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    
+  .pp1{
+   padding-bottom: 20px;
+  }
+
+    /* SCROLL TO TOP */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      padding: 12px 15px;
+      font-size: 30px;
+      cursor: pointer;
+      display: none;
+      transition: 0.3s;
+    }
+
+    #scrollTopBtn:hover { transform: scale(1.1); background: #fff; color: var(--primary); }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: var(--dark);
+        position: absolute;
+        top: 60px; right: 0;
+        width: 200px;
+        padding: 20px;
+      }
+      .menu-toggle { display: block; }
+      .nav-links.active { display: flex; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="navbar">
+    <div class="logo"><span>Majd</span> Family</div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#donation">Donation</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="story.html">story</a></li>
+    </ul>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.instagram.com/majdingaza/"><i class="fab fa-instagram"></i></a>
+    </div>
+    <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+  </header>
+
+  <!-- LANDING -->
+  <section class="landing">
+    <div class="landing-text">
+      <h1>Welcome to <span>Majd’s Story</span></h1>
+      <p>A voice from Gaza to the world 🌍 — A story of courage, hope, and humanity.</p>
+      <a href="#about" class="btn">Start Exploring</a>
+    </div>
+    <div class="landing-image">
+      <img src="fot1.jfif" alt="Gaza city" />
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section class="news-section" id="news">
+    <h2>Join the Journey</h2>
+    <div class="news-container">
+      <div class="news-card"><div class="news-image"><img src="s2.jpg" alt=""></div><div class="news-content"><h3></h3><a href="#" class="btn1">Soon</a></div></div>
+      <div class="news-card"><div class="news-image"><img src="s2.jpg" alt=""></div><div class="news-content"><h3></h3><a href="#" class="btn1">Soon</a></div></div>
+      <div class="news-card"><div class="news-image"><img src="s2.jpg" alt=""></div><div class="news-content"><h3></h3><a href="#" class="btn1">Soon</a></div></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <h2>About Majd</h2>
+    <div class="about-content">
+      <img src="h2.png" alt="Majd">
+      <div class="about-text">
+        <p>Majd is a young student from Gaza, striving to achieve his dreams despite challenges. His story inspires hope, resilience, and the power of education.</p>
+        <div class="about-extra" id="about-extra">
+          <p>He continues his journey with hope and determination, working hard to complete his studies and create a better future for his family and community.</p>
+        </div>
+        <button class="read-more-btn" id="read-more-btn">Read More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- DONATION -->
+  <section class="donation" id="donation">
+    <h2>Help Majd Achieve His Dreams 🎓</h2>
+    <p>Majd needs <strong>€8279</strong> to complete his studies. Every contribution brings hope!</p>
+
+    <div class="progress-bar-container">
+      <div class="progress-bar"></div>
+    </div>
+    <div class="progress-bar-text">Raised: €1721 of €10000</div>
+
+    <p>Imagine 400 people donating just €20 each — we can reach the goal!</p>
+    <a href="https://linktr.ee/majdingaza" class="donate-btn">Donate Now</a>
+  </section>
+
+<section class="contact-section" id="contact">
+  <div class="contact-container">
+    <h2>Contact Us</h2>
+    <p class="pp1">We’d love to hear from you! Send us a message below.</p>
+    
+    <form id="contact-form" action="https://formspree.io/f/mdkqzjoe" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="_replyto" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="send-btn">Send Message</button>
+      <div id="form-status" style="margin-top:10px;font-weight:500;"></div>
+    </form>
+  </div>
+</section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Majd. All rights reserved.</p>
+  </footer>
+
+  <button id="scrollTopBtn"><i class="fas fa-arrow-up"></i></button>
+
+  <script>
+    // MENU TOGGLE
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+
+    // READ MORE
+     // READ MORE — TWO FUNCTION MODES WITH ANIMATION
+// READ MORE — TWO FUNCTION MODES WITH FULL ANIMATION
+const readMoreBtn = document.getElementById('read-more-btn');
+const aboutExtra = document.getElementById('about-extra');
+
+let openedOnce = false;
+
+readMoreBtn.addEventListener('click', () => {
+
+  if (!openedOnce) {
+    
+    // Show extra text smoothly
+    aboutExtra.style.display = "block";
+
+    // Delay to trigger animation
+    setTimeout(() => {
+      aboutExtra.classList.add("show");
+      readMoreBtn.classList.add("move-down"); // Move button down smoothly
+    }, 10);
+
+    // Change button text
+    readMoreBtn.textContent = "Continue to Story";
+
+    openedOnce = true;
+
+  } else {
+    // Second click → go to story page
+    window.location.href = "story.html";
+  }
+
+});
+
+
+    // SCROLL REVEAL for News Cards
+    const cards = document.querySelectorAll('.news-card');
+    window.addEventListener('scroll', () => {
+      cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) card.classList.add('visible');
+      });
+    });
+
+    // SCROLL TO TOP
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.onscroll = () => {
+      scrollBtn.style.display = (window.scrollY > 400) ? 'block' : 'none';
+    };
+    scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+ const form = document.getElementById('contact-form');
+const formStatus = document.getElementById('form-status');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault(); // منع إعادة تحميل الصفحة
+
+  const data = {
+    name: form.name.value,
+    _replyto: form._replyto.value,
+    message: form.message.value
+  };
+
+  formStatus.textContent = "⏳ Sending message...";
+  formStatus.style.color = "black";
+
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new URLSearchParams(data)
+    });
+
+    if (res.ok) {
+      formStatus.textContent = "✅ Message sent successfully!";
+      formStatus.style.color = "green";
+      form.reset();
+    } else {
+      formStatus.textContent = "❌ Error sending message. Try again.";
+      formStatus.style.color = "red";
+    }
+  } catch (err) {
+    formStatus.textContent = "⚠️ Network error. Check your connection.";
+    formStatus.style.color = "orange";
+    console.error(err);
+  }
+  
+    });
+  </script>
+<div id="adOverlay">
+  <div id="adContent">
+    <button id="closeBtn">×</button>
+    <!-- ضع كود الإعلان هنا -->
+   <script
+  async="async"
+  data-cfasync="false"
+  src="//pl28180643.effectivegatecpm.com/fd38b4d3471845455a3bc471c7a4aa75/invoke.js"
+></script>
+<div id="container-fd38b4d3471845455a3bc471c7a4aa75"></div>
+  </div>
+</div>
+
+  <script>
+    document.getElementById("closeBtn").addEventListener("click", function() {
+      document.getElementById("adOverlay").style.display = "none";
+    });
+  </script>
+</body>
+</html>
