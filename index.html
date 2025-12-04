@@ -379,43 +379,26 @@ body, p, li, a {
       background: rgba(255,255,255,0.1);
       color: #fff;
     }
-  #adOverlay {
+    #adOverlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.7); /* خلفية مظللة */
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9999;
 }
-
 #adContent {
   position: relative;
-  background: #fff;
-  padding: 20px;
-  border-radius: 15px;
-  max-width: 700px;
+  max-width: 500px;
   width: 90%;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
 }
-
-#closeBtn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: red;
-  color: white;
-  border: none;
-  font-size: 40px;
-  cursor: pointer;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
+#adFront:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
 }
-
+ 
       .donate-btn{
         margin-top: 20px;
       }
@@ -443,22 +426,31 @@ body, p, li, a {
   }
 
     /* SCROLL TO TOP */
-    #scrollTopBtn {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      border-radius: 50%;
-      padding: 12px 15px;
-      font-size: 30px;
-      cursor: pointer;
-      display: none;
-      transition: 0.3s;
-    }
-
-    #scrollTopBtn:hover { transform: scale(1.1); background: #fff; color: var(--primary); }
+ #scrollTopBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4); /* 🔹 إضافة ظل */
+}
+#scrollTopBtn:hover { 
+  transform: scale(1.1); 
+  background: #fff; 
+  color: var(--primary); 
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5); /* 🔹 ظل أكبر عند المرور */
+}
 
     @media (max-width: 768px) {
       .nav-links {
@@ -544,7 +536,7 @@ body, p, li, a {
     <div class="progress-bar-text">Raised: €1721 of €10000</div>
 
     <p>Imagine 400 people donating just €20 each — we can reach the goal!</p>
-    <a href="https://linktr.ee/majdingaza" class="donate-btn">Donate Now</a>
+    <a href="https://linktr.ee/majdingaza" target="_blank"  class="donate-btn">Donate Now</a>
   </section>
 
 <section class="contact-section" id="contact">
@@ -663,23 +655,45 @@ form.addEventListener('submit', async (e) => {
   
     });
   </script>
+
+<!-- واجهة الإعلان المؤقتة -->
 <div id="adOverlay">
   <div id="adContent">
-    <button id="closeBtn">×</button>
-    <!-- ضع كود الإعلان هنا -->
-   <script
-  async="async"
-  data-cfasync="false"
-  src="//pl28180643.effectivegatecpm.com/fd38b4d3471845455a3bc471c7a4aa75/invoke.js"
-></script>
-<div id="container-fd38b4d3471845455a3bc471c7a4aa75"></div>
+    <div id="adFront" style="cursor:pointer; padding:40px; text-align:center; font-size:1.5rem; font-weight:bold; color:#fff; background:#e63946; border-radius:15px;">
+    Click to continue
+    </div>
+    <p style="text-align:center; color:#fff; margin-top:20px; font-size:1rem;">
+     You can bypass this by clicking 'Click to continue
+    </p>
   </div>
 </div>
+<style>
+#adOverlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+#adContent {
+  position: relative;
+  max-width: 500px;
+  width: 90%;
+}
+</style>
 
-  <script>
-    document.getElementById("closeBtn").addEventListener("click", function() {
-      document.getElementById("adOverlay").style.display = "none";
-    });
-  </script>
+<script>
+document.getElementById("adFront").addEventListener("click", () => {
+  // فتح صفحة الإعلان في صفحة جديدة
+  window.open("ad.html", "_blank");
+  // إخفاء واجهة الإعلان
+  document.getElementById("adOverlay").style.display = "none";
+});
+</script>
+
+  
 </body>
 </html>
